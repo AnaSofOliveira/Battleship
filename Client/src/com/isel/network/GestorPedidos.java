@@ -2,7 +2,6 @@ package com.isel.network;
 
 import com.isel.battleship.Coordenada;
 import com.isel.battleship.Navio;
-import com.isel.battleship.Utilizador;
 import com.isel.battleship.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,14 +9,14 @@ import org.w3c.dom.NodeList;
 
 import java.util.*;
 
-public class GestorPedidos2 extends Thread{
-    private Cliente2 cliente;
+public class GestorPedidos extends Thread{
+    private Cliente cliente;
     private Scanner scanner;
     private boolean onGame = false;
     private char[][] tabuleiro;
     private char[][] tabuleiroTiros;
 
-    GestorPedidos2(Cliente2 cliente){
+    GestorPedidos(Cliente cliente){
         this.cliente = cliente;
         this.scanner = new Scanner(System.in);
     }

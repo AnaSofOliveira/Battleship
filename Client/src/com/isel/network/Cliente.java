@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Cliente2 {
+public class Cliente {
 
     private final String DEFAULT_HOST = "localhost";
     private final int DEFAULT_PORT = 5025;
@@ -20,14 +20,14 @@ public class Cliente2 {
     private ObjectOutputStream outputStream = null;
     Thread t;
 
-    private GestorPedidos2 gestorPedidos = null;
+    private GestorPedidos gestorPedidos = null;
     //private GestorConvite gestorConvites = null;
 
     boolean logado = false;
 
     Utilizador utilizador;
 
-    public Cliente2(){
+    public Cliente(){
         try{
             socket = new Socket(DEFAULT_HOST, DEFAULT_PORT);
             outputStream = new ObjectOutputStream(socket.getOutputStream());
@@ -74,7 +74,7 @@ public class Cliente2 {
                         System.out.println("Login Válido");
                         logado = true;
                         this.utilizador = new Utilizador(user, pass, foto);
-                        gestorPedidos = new GestorPedidos2(this);
+                        gestorPedidos = new GestorPedidos(this);
                         gestorPedidos.start();
                     }
                     //System.out.println("Login Inválido. Tente novamente. ");
@@ -166,6 +166,6 @@ public class Cliente2 {
 //    }
 
     public static void main(String[] args) {
-        new Cliente2();
+        new Cliente();
     }
 }
