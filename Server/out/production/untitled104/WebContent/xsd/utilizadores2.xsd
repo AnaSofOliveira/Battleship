@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wmh="http://www.wmhelp.com/2003/eGenerator" elementFormDefault="qualified">
+  <xs:element name="utilizadores">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="utilizador" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="xsi:noNamespaceSchemaLocation" type="xs:string"/>
+      <xs:attribute name="xmlns:xsi" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="utilizador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="nome_utilizador"/>
+        <xs:element ref="password"/>
+        <xs:element ref="foto"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nome_utilizador" type="xs:string"/>
+  <xs:element name="password" type="xs:string"/>
+  <xs:element name="foto">
+    <xs:complexType>
+      <xs:attribute name="src" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

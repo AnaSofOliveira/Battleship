@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<utilizadores xsi:noNamespaceSchemaLocation="file:///C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%E1ticos/TP01/Server/src/WebContent/xsd/utilizadores2.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+              <utilizador>
+                          <nome_utilizador>Ana</nome_utilizador>
+                           <password>Testes1234</password>
+                           <foto src ="C:\Users\anaso\Desktop\galaxy.jpg"/>
+              </utilizador>
+              <utilizador>
+                          <nome_utilizador>Tiago</nome_utilizador>
+                           <password>UmaPassword</password>
+                           <foto src ="C:\Users\anaso\Desktop\galaxy.jpg"/>
+              </utilizador>
+              <utilizador>
+                          <nome_utilizador>John</nome_utilizador>
+                           <password>Testes1234</password>
+                           <foto src ="C:\Users\anaso\Desktop\galaxy.jpg"/>
+              </utilizador>
+</utilizadores>
+
+
+
+
+
+
+
+
+
+

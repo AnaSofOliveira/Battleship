@@ -1,0 +1,114 @@
+<protocolo>
+    <pedido tipo="setup_game">
+        <navios>
+            <portaAvioes quantidade="1" tamanho="5"/>
+            <tanque quantidade="2" tamanho="4"/>
+            <contratorpedeiros quantidade="3" tamanho="3"/>
+            <submarino quantidade="4" tamanho="2"/>
+        </navios>
+        <resposta>
+            <navios>
+                <PortaAvioes tamanho="5">
+                    <posIni>
+                        <linha>0</linha>
+                        <coluna>0</coluna>
+                    </posIni>
+                    <posFin>
+                        <linha>0</linha>
+                        <coluna>4</coluna>
+                    </posFin>
+                </PortaAvioes>
+                <Tanque tamanho="4">
+                    <posIni>
+                        <linha>4</linha>
+                        <coluna>4</coluna>
+                    </posIni>
+                    <posFin>
+                        <linha>4</linha>
+                        <coluna>7</coluna>
+                    </posFin>
+                </Tanque>
+                <Tanque tamanho="4">
+                    <posIni>
+                        <linha>2</linha>
+                        <coluna>2</coluna>
+                    </posIni>
+                    <posFin>
+                        <linha>2</linha>
+                        <coluna>5</coluna>
+                    </posFin>
+                </Tanque>
+                <Contratorpedeiro tamanho="3">
+                    <posIni>
+                        <linha>4</linha>
+                        <coluna>2</coluna>
+                    </posIni>
+                    <posFin>
+                        <linha>6</linha>
+                        <coluna>2</coluna>
+                    </posFin>
+                </Contratorpedeiro>
+                <Contratorpedeiro tamanho="3">
+                    <posIni>
+                        <linha>8</linha>
+                        <coluna>4</coluna>
+                    </posIni>
+                    <posFin>
+                        <linha>8</linha>
+                        <coluna>6</coluna>
+                    </posFin>
+                </Contratorpedeiro>
+                <Contratorpedeiro tamanho="3">
+                    <posIni>
+                        <linha>0</linha>
+                        <coluna>9</coluna>
+                    </posIni>
+                    <posFin>
+                        <linha>2</linha>
+                        <coluna>9</coluna>
+                    </posFin>
+                </Contratorpedeiro>
+                <Submarino tamanho="2">
+                    <posIni>
+                        <linha>5</linha>
+                        <coluna>9</coluna>
+                    </posIni>
+                    <posFin>
+                        <linha>6</linha>
+                        <coluna>9</coluna>
+                    </posFin>
+                </Submarino>
+                <Submarino tamanho="2">
+                    <posIni>
+                        <linha>8</linha>
+                        <coluna>9</coluna>
+                    </posIni>
+                    <posFin>
+                        <linha>9</linha>
+                        <coluna>9</coluna>
+                    </posFin>
+                </Submarino>
+                <Submarino tamanho="2">
+                    <posIni>
+                        <linha>8</linha>
+                        <coluna>1</coluna>
+                    </posIni>
+                    <posFin>
+                        <linha>8</linha>
+                        <coluna>2</coluna>
+                    </posFin>
+                </Submarino>
+                <Submarino tamanho="2">
+                    <posIni>
+                        <linha>0</linha>
+                        <coluna>7</coluna>
+                    </posIni>
+                    <posFin>
+                        <linha>1</linha>
+                        <coluna>7</coluna>
+                    </posFin>
+                </Submarino>
+            </navios>
+        </resposta>
+    </pedido>
+</protocolo>
