@@ -144,6 +144,16 @@ public class XMLUtil {
 
     }
 
+    public static String getUtilizador(Document document) {
+
+        Element tag_protocolo = document.getDocumentElement();
+
+        Element tag_utilizador = (Element) tag_protocolo.getElementsByTagName("utilizador").item(0);
+
+        return tag_utilizador.getTextContent();
+
+    }
+
     public boolean writeDocument(Document document, final String output) {
         try {
             writeDocument(document, new FileOutputStream(output));

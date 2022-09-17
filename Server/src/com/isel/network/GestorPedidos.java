@@ -4,6 +4,7 @@ import com.isel.battleship.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+import org.w3c.dom.ls.LSResourceResolver;
 
 import java.io.*;
 import java.net.Socket;
@@ -62,8 +63,24 @@ public class GestorPedidos extends Thread{
             }
 
         } catch (IOException | NullPointerException e) {
-            server.online.remove(this.user);
-            server.games.remove(this.game);
+
+            if(this.user != null && this.game != null) {
+                Utilizador adversario = (this.user == this.game.getAnfitriao() ? this.game.getConvidado() : this.game.getAnfitriao());
+                Document docTerminaJogo = XMLUtil.terminaJogo(adversario);
+
+                System.out.println("Vou enviar a mensagem " + XMLUtil.documentToString(docTerminaJogo) + " ao adversário " + adversario.getNomeUtilizador());
+                try {
+                    ObjectOutputStream outputStream = server.online.get(adversario).outputStream;
+                    outputStream.writeObject(docTerminaJogo);
+                    outputStream.flush();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+
+                server.online.remove(this.user);
+                server.disponiveis.remove(this.user);
+                server.games.remove(this.game);
+            }
         }
 
     }
@@ -76,6 +93,7 @@ public class GestorPedidos extends Thread{
         } catch (IOException | ClassNotFoundException | NullPointerException e) {
             System.err.println("Não foi possível receber o pedido do cliente. ");
             server.online.remove(this.user);
+            server.disponiveis.remove(this.user);
         }
 
         return mensagem;
@@ -87,6 +105,7 @@ public class GestorPedidos extends Thread{
         } catch (Exception e) {
             System.err.println("Não foi possível enviar a mensagem" + mensagem + ".");
             server.online.remove(this.user);
+            server.disponiveis.remove(this.user);
         }
     }
 
@@ -119,16 +138,14 @@ public class GestorPedidos extends Thread{
                 case "setup_game":
                     resposta = preparaTabuleiro(document);
                     break;
-//                    if(game.tabuleirosPreparados()){
-//                        Utilizador utilizador = game.getPlayer1();
-//                        GestorPedidos gestorPedidos = server.online.get(utilizador);
-//                        resposta = jogar();
-//                        // TODO envia mensagem para o convidado começar o jogo
-//                    }
+
                 case "joga":
                     resposta = validaEstadoJogo(document);
                     // validaJogada(document);
                     break;
+
+                case "terminar":
+                    terminaJogo(document);
 
                 default:
                     System.out.println("Pedido inválido");
@@ -140,6 +157,25 @@ public class GestorPedidos extends Thread{
         return resposta;
 
     }
+
+    private void terminaJogo(Document document) {
+
+        this.server.games.remove(this.game);
+        this.server.disponiveis.put(this.user, this);
+        System.out.println("Jogo " + this.game + " terminado.");
+
+        /*for (BattleshipGame game : this.server.games){
+            if(game.estaNoJogo(this.user)){
+                this.server.disponiveis.put(this.user, this);
+                try {
+                    this.server.games.remove(this.game);
+                } catch (Exception e) {
+                    System.out.println("O jogo já foi terminado.");
+                }
+            }
+        }*/
+    }
+
     private Document validaEstadoJogo(Document document) {
         boolean jogoTerminado = false;
         boolean resultadoTiro = false;
@@ -244,13 +280,16 @@ public class GestorPedidos extends Thread{
 
         for(BattleshipGame game: server.games){
             if(game.estaNoJogo(user)){
-                game.insereNaviosNoTabuleiro(user, navios);
+                this.game = game;
+                System.out.println("Vou configurar o tabuleiro do " + user.getNomeUtilizador());
+                this.game.insereNaviosNoTabuleiro(user, navios);
+
+                if(this.game.tabuleirosPreparados()){
+                    return jogar();
+                }
             }
 
-            if(game.tabuleirosPreparados()){
-                this.game = game;
-                return jogar();
-            }
+
         }
         return null;
     }
@@ -328,7 +367,11 @@ public class GestorPedidos extends Thread{
         Utilizador anfitriao = obtemUtilizador(nome_anfitriao);
         Utilizador convidado = obtemUtilizador(nome_convidado);
 
-        game = new BattleshipGame(anfitriao, convidado);
+        System.out.println("Vou começar a jogar com " + anfitriao + " e com " + convidado);
+
+        this.game = new BattleshipGame(anfitriao, convidado);
+
+        System.out.println("A instancia do jogo é: " + game);
 
         server.games.add(game);
 

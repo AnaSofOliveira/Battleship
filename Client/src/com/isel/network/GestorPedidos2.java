@@ -16,7 +16,6 @@ public class GestorPedidos2 extends Thread{
     private boolean onGame = false;
     private char[][] tabuleiro;
     private char[][] tabuleiroTiros;
-    //GestorConvite espera_resposta_convite;
 
     GestorPedidos2(Cliente2 cliente){
         this.cliente = cliente;
@@ -83,6 +82,7 @@ public class GestorPedidos2 extends Thread{
 
                     case 3:
                         break;
+
                     case 99:
                         cliente.fechaGestorPedidos();
                         break;
@@ -131,12 +131,10 @@ public class GestorPedidos2 extends Thread{
                 onGame = true;
                 this.tabuleiro = geraTabuleiro();
                 this.tabuleiroTiros = geraTabuleiro();
-                //ArrayList<Navio> navios = posiciona_navios();
                 setup_game(document);
                 break;
 
             case "joga":
-                //imprimeTabuleiro(this.tabuleiroTiros);
                 atira(document);
                 break;
 
@@ -144,11 +142,27 @@ public class GestorPedidos2 extends Thread{
                 atualiza(document);
                 break;
 
+            case "termina":
+                terminaJogo(document);
+                break;
 
             default:
                 System.out.println("Resposta inválida");
         }
 
+    }
+
+    private void terminaJogo(Document document) {
+        String estado = XMLUtil.obtemEstado(document);
+
+        System.out.println("O Jogo terminou " + estado +
+                (estado.equals("Empatado") ? "." : " pelo jogador " + XMLUtil.obtemVencedor(document) + "."));
+
+
+        Document docTerminarJogo = XMLUtil.terminarJogo(document);
+        this.cliente.enviaMensagem(docTerminarJogo);
+        onGame = false;
+        menu();
     }
 
     private void atualiza(Document document) {

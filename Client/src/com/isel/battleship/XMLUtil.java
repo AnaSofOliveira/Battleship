@@ -310,4 +310,38 @@ public class XMLUtil {
 
         return resultado;
     }
+
+    public static Document terminarJogo(Document document) {
+        Element tag_protocolo = document.getDocumentElement();
+
+        Element tag_pedido = (Element) tag_protocolo.getElementsByTagName("pedido").item(0);
+
+        Element tag_resposta = document.createElement("resposta");
+        Element tag_estado = document.createElement("estado");
+        tag_estado.setTextContent("terminado");
+
+        tag_resposta.appendChild(tag_estado);
+        tag_pedido.appendChild(tag_resposta);
+
+        return document;
+
+    }
+
+    public static String obtemEstado(Document document) {
+
+        Element tag_protocolo = document.getDocumentElement();
+        Element tag_pedido = (Element) tag_protocolo.getElementsByTagName("pedido").item(0);
+        Element tag_estado = (Element) tag_pedido.getElementsByTagName("estado").item(0);
+
+        return tag_estado.getTextContent();
+    }
+
+    public static String obtemVencedor(Document document) {
+
+        Element tag_protocolo = document.getDocumentElement();
+        Element tag_pedido = (Element) tag_protocolo.getElementsByTagName("pedido").item(0);
+        Element tag_vencedor = (Element) tag_pedido.getElementsByTagName("vencedor").item(0);
+
+        return tag_vencedor.getTextContent();
+    }
 }
