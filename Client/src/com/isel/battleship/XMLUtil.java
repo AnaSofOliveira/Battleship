@@ -178,8 +178,6 @@ public class XMLUtil {
         ArrayList<Map> info_navios = new ArrayList<>();
         Map<String, String> info_navio = new HashMap<String, String>();
 
-        System.out.println("XPTO: " + documentToString(document));
-
         Element tag_protocolo = document.getDocumentElement();
 
         Element tag_navios = (Element) tag_protocolo.getElementsByTagName("navios").item(0);

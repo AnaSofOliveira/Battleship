@@ -63,12 +63,10 @@ public class Cliente {
                     String foto = input.nextLine();
 
                     Document pedido = XMLUtil.login(user, pass, foto);
-                    System.out.println("<-- Vou enviar o pedido de Login: " + XMLUtil.documentToString(pedido));
+                    //System.out.println("<-- Vou enviar o pedido de Login: " + XMLUtil.documentToString(pedido));
                     enviaMensagem(pedido);
 
                     Document resposta = esperaMensagemLogin();
-
-                    System.out.println("Resposta: " + resposta);
 
                     if(XMLUtil.loginValido(resposta)){
                         System.out.println("Login Válido");
@@ -109,7 +107,7 @@ public class Cliente {
                             reply = inputStream.readObject();
 
                             if (reply instanceof Document) {
-                                System.out.println("--> Recebi a mensagem: " + XMLUtil.documentToString((Document) reply));
+                                //System.out.println("--> Recebi a mensagem: " + XMLUtil.documentToString((Document) reply));
                                 gestorPedidos.trataResposta((Document) reply);
                             }
                         }catch (IOException e) {
@@ -131,7 +129,7 @@ public class Cliente {
         Document mensagem = null;
         try{
             mensagem = (Document) inputStream.readObject();
-            System.out.println("--> Recebi a mensagem de Login: " + XMLUtil.documentToString((Document) mensagem));
+            //System.out.println("--> Recebi a mensagem de Login: " + XMLUtil.documentToString((Document) mensagem));
 
         } catch (Exception e) {
             System.err.println("Não foi possível receber mensagem.");

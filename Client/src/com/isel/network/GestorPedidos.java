@@ -51,14 +51,12 @@ public class GestorPedidos extends Thread{
 
                 switch (option) {
                     case 1:
-                        System.out.println("TERMINATED - Escolhi 1. listarUtilizadores.");
                         request = listaUtilizadores();
                         cliente.enviaMensagem(request);
                         esperaAtiva();
 
                         break;
                     case 2:
-                        System.out.println("WORK IN PROGRESS - Escolhi 2. Convidar.");
                         request = listaUtilizadores();
                         cliente.enviaMensagem(request);
                         esperaAtiva();
@@ -70,13 +68,12 @@ public class GestorPedidos extends Thread{
                         String nome_anfitriao = this.cliente.utilizador.getNomeUtilizador();
                         String nome_convidado = scanner.nextLine();
 
-                        System.out.println("Anfitriao: " + nome_anfitriao);
-                        System.out.println("Convidado: " + nome_convidado);
+                        //System.out.println("Anfitriao: " + nome_anfitriao);
+                        //System.out.println("Convidado: " + nome_convidado);
 
                         Document pedido = XMLUtil.convida(nome_anfitriao, nome_convidado);
-                        System.out.println("Vou enviar o pedido: \n " + XMLUtil.documentToString(pedido));
+                        //System.out.println("Vou enviar o pedido: \n " + XMLUtil.documentToString(pedido));
                         cliente.enviaMensagem(pedido);
-
                         break;
 
                     case 3:
@@ -91,7 +88,8 @@ public class GestorPedidos extends Thread{
 
                 esperaAtiva();
             }catch (NumberFormatException e){
-                System.out.println("NumberFormatException from menu() in GestorPedidos2");
+                System.out.println("Confirme a sua resposta.");
+                //System.out.println("NumberFormatException from menu() in GestorPedidos2");
             }
 
         } while (!onGame);
@@ -107,7 +105,7 @@ public class GestorPedidos extends Thread{
 
     private Document listaUtilizadores() {
         Document request = XMLUtil.listaUtilizadores();
-        System.out.println("Vou enviar o pedido: \n " + XMLUtil.documentToString(request));
+        //System.out.println("Vou enviar o pedido: \n " + XMLUtil.documentToString(request));
         return request;
 //        Document resposta = cliente.esperaMensagem();
 //        System.out.println("Recebi a resposta: \n " + XMLUtil.documentToString(resposta));
@@ -221,7 +219,7 @@ public class GestorPedidos extends Thread{
         NodeList tag_estado = document.getElementsByTagName("estado");
         if (tag_estado.getLength() > 0) {
             String estado = ((Element)tag_estado.item(0)).getTextContent();
-            System.out.println("* A RESPOSTA AO MEU CONVITE ESTÁ NO ESTADO: " + estado);
+            System.out.println("* Estado convite: " + estado);
 
             if(estado.equals("Erro")){
                 String nome_anfitriao = XMLUtil.getNomeAnfitriao(document);
@@ -234,7 +232,6 @@ public class GestorPedidos extends Thread{
                 }
             }
         } else {
-            //espera_resposta_convite.stop();
             System.out.println("Foi convidado para uma partida de battleship. Deseja aceitar o convite (S/N) ?");
             onGame = true;
             //Scanner scanner = new Scanner(System.in);
@@ -250,7 +247,7 @@ public class GestorPedidos extends Thread{
         }
 
         if(resposta != null) {
-            System.out.println("<-- Vou responder: " + XMLUtil.documentToString(resposta));
+            //System.out.println("<-- Vou responder: " + XMLUtil.documentToString(resposta));
             cliente.enviaMensagem(resposta);
         }
     }
@@ -314,12 +311,12 @@ public class GestorPedidos extends Thread{
         }
 
         Document resposta = XMLUtil.setup_game(document, navios_a_jogo);
-        System.out.println("<-- Vou responder: " + XMLUtil.documentToString(resposta));
+        //System.out.println("<-- Vou responder: " + XMLUtil.documentToString(resposta));
         cliente.enviaMensagem(resposta);
     }
 
     private void atira(Document document) {
-        System.out.println("Escolhe uma posição onde atirar.");
+        System.out.println("Escolha uma posição onde atirar.");
 
         Coordenada coord = new Coordenada(20, 20);
         boolean posicaoValida = false;
@@ -337,7 +334,7 @@ public class GestorPedidos extends Thread{
         }
 
         Document resposta = XMLUtil.tiro(document, coord);
-        System.out.println("<-- Vou responder: " + XMLUtil.documentToString(resposta));
+        //System.out.println("<-- Vou responder: " + XMLUtil.documentToString(resposta));
         cliente.enviaMensagem(resposta);
 
 
@@ -460,20 +457,20 @@ public class GestorPedidos extends Thread{
                 "4", "5", "6",
                 "7", "8", "9", "10"};
 
-        System.out.print(" ");
+        /*System.out.print(" ");
         for(String col: label_colunas){
             System.out.print("  " + col);
         }
-        System.out.println();
+        System.out.println();*/
 
         int linha = 1;
         for(char[] row : tabuleiro){
             Arrays.fill(row, '~');
-            System.out.print(linha + "  ");
+            /*System.out.print(linha + "  ");
             for(char pos: row){
                 System.out.print(pos + "  ");
             }
-            System.out.println();
+            System.out.println();*/
             linha++;
         }
 
