@@ -1,0 +1,131 @@
+html, body{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+h1{
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+#background{
+    background-color: #000;
+    background-image: url("../imgs/background.jpg");
+    background-position: center;
+    background-size: cover;
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+#loginContainer *{
+    color: #ffffff;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: normal;
+    line-height: 1em;
+    box-sizing: border-box;
+}
+
+#loginContainer {
+    margin-top: 10%;
+    width: 50%;
+    /* margin: 3% auto; */
+    position: relative;
+    max-width: 1024px;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #ffffff;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #ffffff;
+    opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #ffffff;
+    opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #ffffff;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #ffffff;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+    color: #ffffff;
+}
+
+#inputContainer {
+    width: 60%;
+    float: left;
+    margin-left: 30%;
+}
+
+#inputContainer h2{
+    text-align: center;
+    font-weight: bold;
+}
+
+#inputContainer input[type="text"], #inputContainer input[type="email"], #inputContainer input[type="password"]{
+    display: block;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    height: 35px;
+    line-height: 27px;
+    width: 100%;
+}
+
+#inputContainer label{
+    color: #fff;
+    font-size: 16px;
+    margin-top: 15px;
+    display: block;
+}
+
+#inputContainer button{
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 250px;
+    color: #ffffff;
+    display: block;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 20px auto;
+    height: 41px;
+    width: 100%;
+}
+
+#inputContainer button:hover{
+    cursor: pointer;
+}
+
+#loginForm{
+    padding-right: 40%;
+    padding-top: 10%;
+}
+
+
+@media only screen and (max-width: 1080px) {
+    #inputContainer {
+        width: 100%;
+    }
+
+    #loginText {
+        width: 90%;
+    }
+
+    #loginForm{
+        padding: 60px 120px 20px 120px;
+    }
+
+    #registerForm{
+        padding: 60px 120px 0px 120px;
+    }
+
+    #loginContainer {
+        margin: 0px auto;
+    }
+}
