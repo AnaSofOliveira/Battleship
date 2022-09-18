@@ -1,5 +1,6 @@
 package com.isel;
 
+import com.google.gson.Gson;
 import com.isel.utils.XMLUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -42,6 +43,10 @@ public class Server extends HttpServlet {
                 String username = req.getParameter("loginNickname");
                 String password = req.getParameter("loginPassword");
                 mensagem = XMLUtil.login(username, password, "C:\\Users\\anaso\\Desktop\\galaxy.jpg");
+                break;
+
+            case "convite":
+                mensagem = XMLUtil.listaUtilizadores();
                 break;
         }
         
@@ -111,11 +116,19 @@ public class Server extends HttpServlet {
                 }
                 break;
 
-            /*case "listaUtilizadores":
-                apresentaUtilizadores(document, response, request);
+            case "listaUtilizadores":
+                try {
+                    List<String> utilizadores = XMLUtil.obtemListaUtilizadores(document);
+                    session.setAttribute("utilizadores", utilizadores);
+                    response.sendRedirect(request.getContextPath()  + "/jsp/convidar.jsp");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
 
-            case "convite":
+
+
+              /*case "convite":
                 convite(document);
                 break;
 

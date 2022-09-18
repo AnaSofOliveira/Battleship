@@ -1,11 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Battleship</title>
-    <link rel="stylesheet" type="text/css" href="../css/login.css">
-</head>
-<body>
+<jsp:include page="includes/header.jsp" />
 <div id="background">
     <h1>Battleship Game - Login</h1>
     <div id="loginContainer">
@@ -30,6 +23,4 @@
 
     </div>
 </div>
-
-</body>
-</html>
+<jsp:include page="includes/footer.jsp" />

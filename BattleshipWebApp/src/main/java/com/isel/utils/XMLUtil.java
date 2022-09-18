@@ -19,6 +19,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class XMLUtil {
@@ -107,6 +108,21 @@ public class XMLUtil {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static List<String> obtemListaUtilizadores(Document document) {
+
+        List<String> lista = new ArrayList<>();
+
+        Element root = document.getDocumentElement();
+        NodeList utilizadores = root.getElementsByTagName("utilizador");
+
+        System.out.println("Utilizadores ativos:");
+        for( int index_user = 0; index_user < utilizadores.getLength(); index_user++){
+            String nome = utilizadores.item(index_user).getFirstChild().getTextContent();
+            lista.add(nome);
+        }
+        return lista;
     }
 
     public static String obtemTipodaResposta(Document document) {

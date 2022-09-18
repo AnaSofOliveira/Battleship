@@ -1,17 +1,15 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: anaso
-  Date: 18/09/2022
-  Time: 18:51
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Home</title>
-</head>
-<body>
-<h1>Escolha uma das opções abaixo</h1>
-<button type="button">Convidar um utilizador</button>
-</body>
-</html>
+<jsp:include page="includes/header.jsp" />
+
+<div id="optionsContainer">
+    <h1>Escolha uma das opções abaixo:</h1>
+    <form action="/BattleshipWebApp_war_exploded/server" method="post">
+        <input type="hidden" name="tipo" value="convite" />
+        <button type="submit">Convidar jogador</button>
+    </form>
+    <form action="/BattleshipWebApp_war_exploded/server" method="post">
+        <input type="hidden" name="tipo" value="terminar" />
+        <button type="submit">Sair</button>
+    </form>
+</div>
+
+<jsp:include page="includes/footer.jsp" />
