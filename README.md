@@ -7,11 +7,24 @@
 
 ## Trabalho Prático Final
 
+## Data Entrega: 19 de setembro de 2022
+## Engenheiro: Diogo Remédios
+ 
+## Alunos: 
+## Ana Oliveira 39275
+## Tiago Carvalho 37726
+
+# Semestre Verão 21/22
+
 | Data Entrega: | 19 de setembro de 2022 |
+| --- | --- |
 | Engenheiro: | Diogo Remédios |
-| Alunos: | Ana Oliveira 39275| 
-| | Tiago Carvalho 37726|
-| Semestre Verão 21/22 |
+| --- | --- |
+| Alunos: |
+| Ana Oliveira | 39275 |
+| Tiago Carvalho | 37726 |
+
+ | Semestre Verão 21/22 |
 
 
 Índice
