@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <jsp:include page="includes/header.jsp"/>
-
+<div id="background">
     <div id="usersContainer">
         <%
             Object utilizadores = (List<String>) session.getAttribute("utilizadores");
@@ -21,5 +21,5 @@
         <p><% System.out.println(utilizadores); %></p>
 
     </div>
-
+</div>
 <jsp:include page="includes/footer.jsp" />

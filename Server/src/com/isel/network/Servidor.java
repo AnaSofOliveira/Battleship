@@ -15,7 +15,7 @@ public class Servidor {
     private final String UTILIZADORES_XML_FILEPATH = "src\\WebContent\\xml\\utilizadores.xml";
     private final String UTILIZADORES_XSD_FILEPATH = "src\\WebContent\\xsd\\utilizadores.xsd";
 
-    public final static int DEFAULT_PORT = 5025;
+        public final static int DEFAULT_PORT = 5025;
     public ServerSocket serverSocket = null;
 
     public ArrayList<Utilizador> all_users = new ArrayList<>();
