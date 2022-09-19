@@ -16,117 +16,7 @@
 
 ### Semestre Verão 21/22
 
-
-Índice
-
-[Introdução 3](#_Toc114500741)
-
-[Desenvolvimento 4](#_Toc114500742)
-
-[Arquitetura Cliente-Servidor 4](#_Toc114500743)
-
-[Mensagens para Login 8](#_Toc114500744)
-
-[Mensagens para listar utilizadores 9](#_Toc114500745)
-
-[Mensagens para convidar utilizadores 10](#_Toc114500746)
-
-[Mensagens para iniciar o jogo 12](#_Toc114500747)
-
-[Mensagens para ataque 14](#_Toc114500748)
-
-[Mensagem para término do jogo 15](#_Toc114500749)
-
-[Arquitetura Web 16](#_Toc114500750)
-
-[Visão Cliente 17](#_Toc114500751)
-
-[Aplicação Stand-alone 17](#_Toc114500752)
-
-[Login 17](#_Toc114500753)
-
-[Enviar Convite 17](#_Toc114500754)
-
-[Aceitar Convite 18](#_Toc114500755)
-
-[Inserir 18](#_Toc114500756)
-
-[Jogadas 19](#_Toc114500757)
-
-[Terminar jogo 20](#_Toc114500758)
-
-[Múltiplos jogadores 21](#_Toc114500759)
-
-[Aplicação Web 22](#_Toc114500760)
-
-[Login 22](#_Toc114500761)
-
-[Home Page 22](#_Toc114500762)
-
-[Conclusões 23](#_Toc114500763)
-
-Índice de Figuras
-
-[Figura 1 - Arquitetura Cliente - Servidor 4](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500654)
-
-[Figura 2 - UML Servidor 5](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500655)
-
-[Figura 3 - UML Cliente 6](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500656)
-
-[Figura 4 - Estrutura Pedido XML 7](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500657)
-
-[Figura 5 - Estrutura Resposta XML 7](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500658)
-
-[Figura 6 - Exemplo pedido login 8](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500659)
-
-[Figura 7 - Exemplo resposta login com sucesso 8](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500660)
-
-[Figura 8 - Exemplo resposta login de jogador login já efetuado 8](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500661)
-
-[Figura 9 - Exemplo resposta login com password incorreta 9](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500662)
-
-[Figura 10 - Exemplo pedido listar utilizadores 9](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500663)
-
-[Figura 11 - Exemplo resposta listar utilizadores 9](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500664)
-
-[Figura 12 - Exemplo pedido convite 10](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500665)
-
-[Figura 13 - Exemplo resposta convite enviado 10](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500666)
-
-[Figura 14 - Exemplo resposta convite recusado 11](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500667)
-
-[Figura 15 - Exemplo resposta convite aceite 11](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500668)
-
-[Figura 16 - Exemplo pedido para configurar jogo 12](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500669)
-
-[Figura 17 - Exemplo resposta para configurar jogo 13](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500670)
-
-[Figura 18 - Exemplo pedido para jogar 14](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500671)
-
-[Figura 19 - Exemplo resposta para jogar 14](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500672)
-
-[Figura 20 - Exemplo pedido para terminar jogo 15](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500673)
-
-[Figura 21 - App - Iniciar sessão 17](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500674)
-
-[Figura 22 - App - Convidar 17](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500675)
-
-[Figura 23 - App - Inserir navios (início) 18](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500676)
-
-[Figura 24 - App - Inserir navios (final) 19](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500677)
-
-[Figura 25 - App - Jogada/ Tiros 19](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500678)
-
-[Figura 26 - App - Jogo terminado 20](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500679)
-
-[Figura 27 - App - 2 Jogos a decorrer 21](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500680)
-
-[Figura 28 - Web App Login 22](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500681)
-
-[Figura 29 - Web App Home Page 22](/C:/Users/anaso/Documents/IECD/Trabalhos%20Pr%C3%A1ticos/Battleship/ICD%20Relat%C3%B3rio%20-%20Conte%C3%BAdo.docx#_Toc114500682)
-
 #
-
 
 # Introdução
 
@@ -150,6 +40,8 @@ Os jogadores farão um auto-registo indicando o nickname, password e foto. Na co
 O jogo proposto deverá ser capaz de estabelecer a comunicação entre todos os clientes no sistema, bem como manter a informação estritamente necessária sobre os jogadores e os jogos em curso. Assim, será necessário implementar um sistema com base numa arquitetura cliente-servidor e definir cuidadosamente as mensagens trocadas entre as diversas componentes do sistema.
 
 No decorrer deste documento iremos apresentar as diversas abordagens e tomadas de decisões necessárias de forma a garantir o cumprimento dos requisitos.
+
+#
 
 # Desenvolvimento
 
@@ -188,8 +80,6 @@ Os dados dos utilizadores anteriormente "logados" são armazenados no ficheiro _
 ![Shape8](RackMultipart20220919-1-ajmesn_html_15ddf7679399be10.gif)
 
 ![Shape9](RackMultipart20220919-1-ajmesn_html_72a3c105112b9c84.gif)
-
-##
 
 
 ## Mensagens para listar utilizadores
@@ -244,25 +134,14 @@ Caso um dos jogadores abandone o jogo, esta mensagem também é enviada para o o
 
 ![Shape21](RackMultipart20220919-1-ajmesn_html_8de89439e8209616.gif)
 
-_Figura 20 - Exemplo pedido para terminar jogo_
-
-\<protocolo\>
-
-\<pedido tipo="termina"\>
-
-\<estado\>Ganho\</estado\>
-
-\<vencedor\>Ana\</vencedor\>
-
-\</pedido\>
-
-\</protocolo\>
 
 # Arquitetura Web
 
 Nesta fase pretendíamos, mantendo os objetivos anteriormente indicados, escalar o nosso sistema, de forma que o jogador pudesse jogar através de uma aplicação ou através de qualquer browser com acesso à internet. Assim, desenvolvemos um novo cliente recorrendo a um servidor Web. Este servidor Web opera como um cliente do nosso servidor anteriormente implementado, pelo que este apenas opera como intermediário (proxy) entre o browser e o nosso servidor anteriormente desenvolvido.
 
 Para implementar a visão do cliente no browser e as operações a enviar pelo servidor Web foi necessário recorrer a Servlets e JSP. A Servlet Servidor é responsável por interpretar a operação a realizar do lado do cliente web, enviar a mensagem ao servidor local e aguardar a resposta. Após isto, e mediante o tipo da resposta, o browser apresenta a página correspondente, codificada em JSPs.
+
+#
 
 # Visão Cliente
 
@@ -307,6 +186,8 @@ _Figura 23 - App - Inserir navios (início)_
 ### Home Page
 
 ![Shape30](RackMultipart20220919-1-ajmesn_html_488ab3435a4a05e5.gif)
+
+#
 
 # Conclusões
 
